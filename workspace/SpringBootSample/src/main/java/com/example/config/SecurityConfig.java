@@ -41,7 +41,8 @@ public class SecurityConfig {
 						.logoutSuccessUrl("/login?logout"))
 				.authorizeHttpRequests(authz -> authz.mvcMatchers("/login").permitAll() // 直リンクOK
 						.mvcMatchers("/user/signup").permitAll() // 直リンクOK
-						.anyRequest().authenticated());
+						.antMatchers("/admin").hasAnyAuthority("ROLE_ADMIN") // 権限制御
+						.anyRequest().authenticated()); // それ以外は直リンクNG
 		//http.csrf().disable();
 		return http.build();	
 	}
