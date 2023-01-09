@@ -41,10 +41,11 @@ public class SecurityConfig {
 						.logoutSuccessUrl("/login?logout"))
 				.authorizeHttpRequests(authz -> authz.mvcMatchers("/login").permitAll() // 直リンクOK
 						.mvcMatchers("/user/signup").permitAll() // 直リンクOK
-						.antMatchers("/admin").hasAnyAuthority("ROLE_ADMIN") // 権限制御
+						.mvcMatchers("/user/signup/rest").permitAll().mvcMatchers("/admin")
+						.hasAnyAuthority("ROLE_ADMIN") // 権限制御
 						.anyRequest().authenticated()); // それ以外は直リンクNG
-		//http.csrf().disable();
-		return http.build();	
+		// http.csrf().disable();
+		return http.build();
 	}
 
 	@Bean
