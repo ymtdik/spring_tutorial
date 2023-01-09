@@ -12,6 +12,6 @@ user_id
 ,department_id
 ,role
 ) VALUES
-('system@co.jp','password','システム管理者','2000-01-01',21,1,1,'ROLE_ADMIN')
-,('user@co.jp','password', 'ユーザー1','2000-01-01',21,2,2,'ROLE_GENERAL')
+('system@co.jp','$2a$10$qoReOgDBC1VboCr3bbETAeDpziyGb9TCC84HOONlNWQgYoUNSwtn2','システム管理者','2000-01-01',21,1,1,'ROLE_ADMIN')
+,('user@co.jp','$2a$10$qoReOgDBC1VboCr3bbETAeDpziyGb9TCC84HOONlNWQgYoUNSwtn2', 'ユーザー1','2000-01-01',21,2,2,'ROLE_GENERAL')
 ON DUPLICATE KEY UPDATE user_id=user_id;

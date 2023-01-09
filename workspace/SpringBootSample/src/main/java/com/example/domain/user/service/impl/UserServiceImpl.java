@@ -55,4 +55,10 @@ public class UserServiceImpl implements UserService {
 		int count = mapper.deleteOne(userId);
 	}
 
+	@Override
+	public MUser getLoginUser(String userId) {
+		// TODO 自動生成されたメソッド・スタブ
+		return mapper.findLoginUser(userId);
+	}
+
 }
